@@ -2,3 +2,6 @@ This program will prompt users to enter a series of numbers, then allow them to 
 
 JOptionPane.showInputDialog() solo admite strings. 
 Convertir el array a String y luego, una vez lo introduzca el usuario, convertir el String otra vez a array. 
+
+
+convert userNumbersString into list of int: List<Integer> convertedUserNumbers; 
