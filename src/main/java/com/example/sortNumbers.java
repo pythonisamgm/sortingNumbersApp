@@ -9,9 +9,28 @@ import java.io.*;
  */
 public class sortNumbers {
 
-    static void bubbleAscendingSort(int convertedNumbersList[], int n){
+
+//bubbleAscending method
+    static void bubbleAscendingSort(int numbersArray[], int n){
+        int i, j, temp;
+        boolean swapped; 
+        for (i = 0; i < n-1; i++){
+            swapped = false; 
+            for (j = 0; j<n-i-1;j++){
+                if (numbersArray[j] > numbersArray[j+1]){
+                    temp = numbersArray[j];
+                    numbersArray[j] = numbersArray[j+1];
+                    numbersArray[j+1]=temp;
+                    swapped = true; 
+                }
+            }
+            if (swapped == false)
+            break; 
+        }
 
     }
+
+//bubbleDescending method
     public static void main(String[] args){
         
         //input enter a list of numbers of your choice
@@ -25,15 +44,18 @@ public class sortNumbers {
         //selection devuelve 0 o 1
         System.out.println(selection);
 
-        //change type from string to list of int. convertedNumbersArray is an object. Create a new integer list and pass each item from convertedNumbersArray, previously splitted, through a for loop, adding them as integers into a new list (convertedNumberList).
+        //change type from string to list of int. convertedNumbersArray is an object. Create a new integer list and pass each item from convertedNumbersArray, previously splitted, through a for loop, adding them as integers into a new array (convertedNumberList).
         String[] convertedNumbersArray = userNumbersString.split(",");
-        List<Integer> convertedNumbersList = new ArrayList <Integer>();
-        System.out.println("convertedArray" + convertedNumbersArray);
-        for (String number: convertedNumbersArray) {
-            convertedNumbersList.add(Integer.parseInt(number.trim()));}
+        int[] numbersArray = new int[convertedNumbersArray.length];
+        
+        for (int i = 0; i < convertedNumbersArray.length; i++) {
+        numbersArray[i] = Integer.parseInt(convertedNumbersArray[i]);
+    }
+       int n = numbersArray.length; 
 
-        System.out.println(convertedNumbersList);
-        int n = convertedNumbersList.size();
+    }
+        
+        
 
         //if selection = 0. Call for ascending bubble
 
