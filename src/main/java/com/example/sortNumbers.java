@@ -16,7 +16,7 @@ public class sortNumbers {
         boolean swapped; 
         for (i = 0; i < n-1; i++){
             swapped = false; 
-            for (j = 0; j<n-i-1;j++){
+            for (j = 0; j < n - i - 1; j++){
                 if (numbersArray[j] > numbersArray[j+1]){
                     temp = numbersArray[j];
                     numbersArray[j] = numbersArray[j+1];
@@ -31,6 +31,24 @@ public class sortNumbers {
     }
 
 //bubbleDescending method
+static void bubbleDescendingSort(int numbersArray[], int n){
+    int i, j, temp;
+    boolean swapped; 
+    for (i = 0; i < n-1; i++){
+        swapped = false; 
+        for (j = 0; j < n - i - 1; j++){
+            if (numbersArray[j] < numbersArray[j+1]){
+                temp = numbersArray[j];
+                numbersArray[j] = numbersArray[j+1];
+                numbersArray[j+1]=temp;
+                swapped = true; 
+            }
+        }
+        if (swapped == false)
+        break; 
+    }
+
+}
     public static void main(String[] args){
         
         //input enter a list of numbers of your choice
@@ -49,9 +67,16 @@ public class sortNumbers {
         int[] numbersArray = new int[convertedNumbersArray.length];
         
         for (int i = 0; i < convertedNumbersArray.length; i++) {
-        numbersArray[i] = Integer.parseInt(convertedNumbersArray[i]);
+        numbersArray[i] = Integer.parseInt(convertedNumbersArray[i]); 
+        int n = numbersArray.length;
+
+        if (selection == 0) {
+            bubbleAscendingSort(numbersArray, n);
     }
-       int n = numbersArray.length; 
+        else if (selection == 1) {
+            bubbleDescendingSort(numbersArray, n);
+        }
+       
 
     }
         
@@ -70,9 +95,9 @@ public class sortNumbers {
 
         
         } 
-    
+}
         
-    }
+    
 
 
 
