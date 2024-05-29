@@ -62,7 +62,7 @@ public class sortNumbers {
         JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
         options, options[0]); 
         //selection devuelve 0 o 1
-        System.out.println(selection);
+        
 
         //change type from string to list of int. convertedNumbersArray is an object. Create a new integer list and pass each item from convertedNumbersArray, previously splitted, through a for loop, adding them as integers into a new array (convertedNumberList).
         String[] convertedNumbersArray = userNumbersString.split(", ");
@@ -72,34 +72,33 @@ public class sortNumbers {
         for (int i = 0; i < convertedNumbersArray.length; i++) {
         numbersArray[i] = Integer.parseInt(convertedNumbersArray[i]); }
         
-int n = numbersArray.length;
-        if (selection == 0) {
+        int n = numbersArray.length;
+        if (selection == 0) 
+            {
             bubbleAscendingSort(numbersArray, n);
-            System.out.println("print array method");
-            StringBuilder stringBuilder = new StringBuilder();
-                for (int i = 0; i < numbersArray.length; i++ ){
-                    stringBuilder.append(numbersArray[i]);
-                    if (i < numbersArray.length){
-                    stringBuilder.append(", ");
             
-            String arrayAsString = stringBuilder.toString();
-            System.out.println(arrayAsString);
-        JOptionPane.showMessageDialog(null, arrayAsString);
-            
-    }
-        else if (selection == 1) {
+            }
+        else if (selection == 1) 
+            {
             bubbleDescendingSort(numbersArray, n);
-            System.out.println("print array method");
-        
-        }
+
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < numbersArray.length; i++ ){
+                stringBuilder.append(numbersArray[i]);
+                    if (i < numbersArray.length)
+                        {
+                        stringBuilder.append(", ");
+                        }
+                    }
+            String arrayAsString = stringBuilder.toString();
+            String replacedString = arrayAsString.replace("4", "(3+1)");
+            
+            JOptionPane.showMessageDialog(null, replacedString);
        
+            }
 
     }
-        
-        }
-
-    }
-}
 
         //if selection = 0. Call for ascending bubble
 
